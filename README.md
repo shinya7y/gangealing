@@ -40,6 +40,8 @@ We provide an [`environment.yml`](environment.yml) file that can be used to crea
 
 ```bash
 conda env create -f environment.yml
+# or if you use conda-forge
+# conda env create -f environment_forge.yml
 conda activate gg
 ```
 
