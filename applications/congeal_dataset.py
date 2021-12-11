@@ -3,7 +3,9 @@ This script takes a pre-trained Spatial Transformer and applies it to an unalign
 filtered dataset in an unsupervised fashion. By default, this script will only use the similarity transformation
 portion of the Spatial Transformer (rotation + crop) to avoid introducing warping artifacts.
 """
-
+import os
+import sys
+sys.path.insert(1, os.path.dirname(sys.path[0]))
 import torch
 import numpy as np
 from PIL import Image
@@ -15,7 +17,6 @@ from applications import base_eval_argparse, load_stn, determine_flips
 from applications.flow_scores import filter_dataset
 from utils.distributed import setup_distributed, primary, get_rank, all_gatherv, synchronize, get_world_size
 from datasets import MultiResolutionDataset
-import os
 
 
 def apply_congealing(args, dataset, stn, stn_full, out_path, device, rank, n_processes, **stn_args):

@@ -2,6 +2,9 @@
 This script directly applies our method to video, finding dense correspondences across time in an input video. This works
 by applying GANgealing per-frame without using any temporal information.
 """
+import os
+import sys
+sys.path.insert(1, os.path.dirname(sys.path[0]))
 import torch
 import numpy as np
 import math
@@ -12,7 +15,6 @@ from utils.distributed import setup_distributed, primary, all_gather
 from applications import base_eval_argparse, load_stn, determine_flips
 from tqdm import tqdm
 from glob import glob
-import os
 
 
 def grid2vid(list_of_grids):

@@ -9,6 +9,9 @@ Horses: 12 15 21 31 41 81 96 124 132
 CUB: 1032 230 603 401 555 95 71 392 621
 CUB failure cases: 580 581 582 596 597 599 600 601 607
 """
+import os
+import sys
+sys.path.insert(1, os.path.dirname(sys.path[0]))
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -23,7 +26,6 @@ from models.spatial_transformers.spatial_transformer import SpatialTransformer, 
 from applications import base_eval_argparse, load_stn, determine_flips
 from applications.flow_scores import filter_dataset
 from tqdm import tqdm
-import os
 
 
 @torch.inference_mode()

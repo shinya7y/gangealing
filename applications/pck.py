@@ -2,7 +2,9 @@
 This script evaluates PCK-Transfer (this is an efficient implementation that fully supports DistributedDataParallel).
 This can also be used to visualize key point transfers (--vis_transfer).
 """
-
+import os
+import sys
+sys.path.insert(1, os.path.dirname(sys.path[0]))
 import torch
 import numpy as np
 from applications import base_eval_argparse, load_stn
